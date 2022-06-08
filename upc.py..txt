@@ -6,43 +6,127 @@
 using namespace std;
 
 int main() {
-	int type, digits[20], res, aprox, sum1=0, sum2=0, prod=1, add=0;
+	int type, digits[20], res, aprox, sum1 = 0, sum2 = 0, prod = 1, add = 0;
 	cout << "\n                             CHECK DIGIT CALCULATOR." << endl;
 	cout << "1.EAN-8" << endl;
 	cout << "2.UPC-A" << endl;
 	cout << "3.EAN-13" << endl;
 	cout << "4.EAN-14" << endl;
 	cout << "5.SSCC" << endl;
-	cout << "\nChoose your product code type: "; cin>>type;
-	for (int i = 1;i <= 11;i++) {
-		cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 5 3 7 7
-		if (i % 2 != 0) {
-			sum1 = sum1 + digits[i];
+	cout << "\nChoose your product code type: "; cin >> type;
+	switch (type) {
+	case 1:
+		for (int i = 1;i <= 7;i++) {
+			cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 
+			if (i % 2 != 0) {
+				sum1 = sum1 + digits[i];
+			}
+			else {
+				sum2 = sum2 + digits[i];
+			}
+
 		}
-		else {
-			sum2 = sum2 + digits[i];
+		//cout << endl << sum1 << endl;
+		//cout << endl << sum2 << endl;
+		prod = sum1 * 3;
+		//cout << endl << prod << endl;
+		add = prod + sum2;
+		//cout << endl << add << endl;
+		res = add % 10;
+		//cout << endl << res << endl;
+		aprox = 10 - res;
+		cout << "\nThe product code is ";
+		for (int i = 1;i <= 7;i++) {
+			cout << digits[i];
 		}
-		
-	}
-	system("cls");
-	//for (int i = 1;i <= 11;i++) {
-		//cout << digits[i];
-	//}
-	prod=sum1 * 3;
-	add = prod + sum2;
-	//cout <<endl<<sum1<<"*3="<<prod<<endl;
-	//cout << sum2<<endl;
-	//cout << add<<endl;
-	res = add % 10;
-	//cout << res<<endl;
-	aprox = 10 - res;
-	//cout << aprox;
-	cout << "The product code is ";
-	for (int i = 1;i <= 11;i++) {
-		cout << digits[i];
-	}
-	cout << aprox;
+		cout << aprox << endl;
+		break;
+	case 2:
+		for (int i = 1;i <= 11;i++) {
+			cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 5 3 7 7
+			if (i % 2 != 0) {
+				sum1 = sum1 + digits[i];
+			}
+			else {
+				sum2 = sum2 + digits[i];
+			}
+
+		}
+		prod = sum1 * 3;
+		add = prod + sum2;
+		res = add % 10;
+		aprox = 10 - res;
+		cout << "\nThe product code is ";
+		for (int i = 1;i <= 11;i++) {
+			cout << digits[i];
+		}
+		cout << aprox << endl;
+		break;
+	case 3:
+		for (int i = 1;i <= 12;i++) {
+			cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 5 3 7 7 8
+			if (i % 2 != 0) {
+				sum1 = sum1 + digits[i];
+			}
+			else {
+				sum2 = sum2 + digits[i];
+			}
+
+		}
+		prod = sum1 * 3;
+		add = prod + sum2;
+		res = add % 10;
+		aprox = 10 - res;
+		cout << "\nThe product code is ";
+		for (int i = 1;i <= 12;i++) {
+			cout << digits[i];
+		}
+		cout << aprox << endl;
 
 
-	return 0;
+		break;
+	case 4:
+		for (int i = 1;i <= 13;i++) {
+			cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 5 3 7 7 8 9
+			if (i % 2 != 0) {
+				sum1 = sum1 + digits[i];
+			}
+			else {
+				sum2 = sum2 + digits[i];
+			}
+
+		}
+		prod = sum1 * 3;
+		add = prod + sum2;
+		res = add % 10;
+		aprox = 10 - res;
+		cout << "\nThe product code is ";
+		for (int i = 1;i <= 13;i++) {
+			cout << digits[i];
+		}
+		cout << aprox << endl;
+
+
+		break;
+	case 5:
+		for (int i = 1;i <= 17;i++) {
+			cout << "\nEnter the digit " << i << ": "; cin >> digits[i];// 2 3 1 3 9 0 8 5 3 7 7 8 9 1 2 3 4
+			if (i % 2 != 0) {
+				sum1 = sum1 + digits[i];
+			}
+			else {
+				sum2 = sum2 + digits[i];
+			}
+		}
+		prod = sum1 * 3;
+		add = prod + sum2;
+		res = add % 10;
+		aprox = 10 - res;
+		cout << "\nThe product code is ";
+		for (int i = 1;i <= 17;i++) {
+			cout << digits[i];
+		}
+		cout << aprox << endl;
+		return 0;
+	}
 }
