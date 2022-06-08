@@ -1,0 +1,42 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdlib>
+using namespace std;
+
+int main() {
+	int a, b, c, d, n;
+	float x1, x2;
+	do {
+		cout << "Is this a quadratic ecuation? ";
+		cout << "\nType 1 to confirm. ";
+		cout << "\nType any other button if not. "<<endl;
+		cin >> n;
+	} while (n != 1);
+	system("cls");
+	cout << "Type value a: "<<endl; cin >> a;
+	cout << "Type value b: "<<endl; cin >> b;
+	cout << "Type value c: "<<endl; cin >> c;
+	if (a == 0) {
+		cout << "This is not a quadratic equation";
+		if (b == 0) {
+			cout << "a=" << a << " and b=" << b << "  BYE...";
+		}
+		//else {
+			//x1=-c/b;
+			//cout << x1;
+		//}
+	}
+	else {
+		d = ((b * b) - 4 * a * c);
+	}if (d < 0) {
+		cout << "\nNo real answer.";
+	}
+	else {
+		x1 = (-b + sqrt(d)) / (2 * a);
+		x2 = (-b - sqrt(d)) / (2 * a);
+	}
+	cout << "\nx1=" << x1<<endl;
+	cout << "x2=" << x2;
+
+	return 0;
+}
