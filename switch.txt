@@ -1,0 +1,45 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdlib>
+#include<math.h>
+
+using namespace std;
+
+int main() {
+	int n, balance, deposit, withdraw, option, newbalance=0;
+	cout << "                    Welcome to your bank";
+	do {
+		cout << "\nType your balance: $"; cin >> balance;
+		cout << "\nIs your balance $" << balance << "?";
+		cout << "\nEnter (1)- To confirm.";
+		cout << "\nEnter something else if not: ";
+		cin >> n;
+	} while (n != 1);
+	system("cls");
+	cout << "1.Deposit" << endl;
+	cout << "2.Withdraw" << endl;
+	cout << "3.Exit"<<endl;
+	cout << "Select an option: "; cin >> option;
+	system("cls");
+	cout << "        Your balance is: $" << balance;
+	switch (option) {
+	case 1:
+		cout << "\nHow much: $";cin >> deposit;
+		newbalance = balance + deposit;
+		break;
+	case 2:
+		cout << "\nHow much: $";cin >> withdraw;
+		newbalance = balance - withdraw;
+		break;
+	case 3:
+		cout << "See you soon.";
+	}
+	system("cls");
+	if (option == 1 or option == 2) {
+		cout << "\nyour new balance is: $" << newbalance;
+	}
+	else
+		cout << "See you soon.";
+
+	return 0;
+}
