@@ -17,28 +17,33 @@ int main() {
 	if (type > 0 and type < 6) {
 		switch (type) {
 		case 1:
-				for (int i = 1;i <= 7;i++) {
-					do {
-						cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
-					} while (digits[i] < 0 or digits[i]>9);
-						if (i % 2 != 0) {
-						sum1 = sum1 + digits[i];
-					}
-					else {
-						sum2 = sum2 + digits[i];
-					}
+			for (int i = 1;i <= 7;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
 				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+			}
 			prod = sum1 * 3;
 			add = prod + sum2;
 			res = add % 10;
-			aprox = 10 - res;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
 			cout << "\nThe product code is ";
 			for (int i = 1;i <= 7;i++) {
 				cout << digits[i];
 			}
 			cout << aprox << endl;
 			break;
-			
+
 		case 2:
 			for (int i = 1;i <= 11;i++) {
 				do {
@@ -55,7 +60,12 @@ int main() {
 			prod = sum1 * 3;
 			add = prod + sum2;
 			res = add % 10;
-			aprox = 10 - res;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
 			cout << "\nThe product code is ";
 			for (int i = 1;i <= 11;i++) {
 				cout << digits[i];
@@ -78,7 +88,12 @@ int main() {
 			prod = sum1 * 3;
 			add = prod + sum2;
 			res = add % 10;
-			aprox = 10 - res;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
 			cout << "\nThe product code is ";
 			for (int i = 1;i <= 12;i++) {
 				cout << digits[i];
@@ -103,7 +118,12 @@ int main() {
 			prod = sum1 * 3;
 			add = prod + sum2;
 			res = add % 10;
-			aprox = 10 - res;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
 			cout << "\nThe product code is ";
 			for (int i = 1;i <= 13;i++) {
 				cout << digits[i];
@@ -127,7 +147,12 @@ int main() {
 			prod = sum1 * 3;
 			add = prod + sum2;
 			res = add % 10;
-			aprox = 10 - res;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
 			cout << "\nThe product code is ";
 			for (int i = 1;i <= 17;i++) {
 				cout << digits[i];
