@@ -1,0 +1,178 @@
+// Assignment 1
+//Hello! Please try the following deliverable and look what the las digit should be
+//EAN-13 --->278346237464  ----->  278346237464'6'
+//EAN-8 ---->2343142       ----->  2343142'3'
+//UPC-A ---->12312316235   ----->  12312316235'3'
+//SSCC ----->12893712983712937  ----->12893712983712937'4'
+//EAN-14 --->1231237123618  -----> 1231237123618'2'
+#include<iostream>
+#include<stdlib.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int type, digits[20], res, aprox, sum1 = 0, sum2 = 0, prod = 1, add = 0;
+	cout << "\n                             CHECK DIGIT CALCULATOR." << endl;
+	cout << "1.EAN-8" << endl;
+	cout << "2.UPC-A" << endl;
+	cout << "3.EAN-13" << endl;
+	cout << "4.EAN-14" << endl;
+	cout << "5.SSCC" << endl;
+	cout << "\nChoose your product code type: "; cin >> type;
+	if (type > 0 and type < 6) {
+		switch (type) {
+		case 1:
+			for (int i = 1;i <= 7;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
+				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+			}
+			prod = sum1 * 3;
+			add = prod + sum2;
+			res = add % 10;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
+			cout << "\nThe product code is ";
+			for (int i = 1;i <= 7;i++) {
+				cout << digits[i];
+			}
+			cout << aprox << endl;
+			break;
+
+		case 2:
+			for (int i = 1;i <= 11;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
+				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+
+			}
+			prod = sum1 * 3;
+			add = prod + sum2;
+			res = add % 10;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
+			cout << "\nThe product code is ";
+			for (int i = 1;i <= 11;i++) {
+				cout << digits[i];
+			}
+			cout << aprox << endl;
+			break;
+		case 3:
+			for (int i = 1;i <= 12;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
+				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+
+			}
+			cout << endl << "\The sum1 is" << sum1 << endl;
+			cout << endl << "\The sum2 is" << sum2 << endl;
+			prod = sum1 * 3;
+			cout <<endl<<"\nthe product is" << prod << endl;
+			add = prod + sum2;
+			cout << endl <<"\nThe add is" << add << endl;
+			res = add % 10;
+			cout << endl << "\nThe rest is" << res << endl;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
+			cout << "\nThe product code is ";
+			for (int i = 1;i <= 12;i++) {
+				cout << digits[i];
+			}
+			cout << aprox << endl;
+
+
+			break;
+		case 4:
+			for (int i = 1;i <= 13;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
+				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+
+			}
+			prod = sum1 * 3;
+			add = prod + sum2;
+			res = add % 10;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
+			cout << "\nThe product code is ";
+			for (int i = 1;i <= 13;i++) {
+				cout << digits[i];
+			}
+			cout << aprox << endl;
+
+
+			break;
+		case 5:
+			for (int i = 1;i <= 17;i++) {
+				do {
+					cout << "\nEnter the digit " << i << ": "; cin >> digits[i];
+				} while (digits[i] < 0 or digits[i]>9);
+				if (i % 2 != 0) {
+					sum1 = sum1 + digits[i];
+				}
+				else {
+					sum2 = sum2 + digits[i];
+				}
+			}
+			prod = sum1 * 3;
+			add = prod + sum2;
+			res = add % 10;
+			if (res != 0) {
+				aprox = 10 - res;
+			}
+			else {
+				aprox = 0;
+			}
+			cout << "\nThe product code is ";
+			for (int i = 1;i <= 17;i++) {
+				cout << digits[i];
+			}
+			cout << aprox << endl;
+		}
+	}
+	else {
+		cout << endl << "\n" << type << " is an invalid menu choice." << endl;
+	}
+	return 0;
+}
