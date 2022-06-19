@@ -1,0 +1,20 @@
+#include<iostream>
+
+using namespace std;
+
+double inflation(double year, double yearago) {
+	double inf, ans;
+	inf = (year - yearago)/ yearago;
+	ans = inf * 100;
+	cout <<"The inflation is " << ans<<"%";
+
+	return inf;
+ }
+
+int main(){
+	double price, lastprice;
+	cout << "Type actual price: $"; cin >> price;
+	cout << "Type last year price: $"; cin >> lastprice;
+	inflation(price, lastprice);
+	
+}
