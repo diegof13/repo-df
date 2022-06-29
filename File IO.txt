@@ -1,0 +1,23 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main() {
+	int x;
+	fstream instream;
+	//instream.open("df.txt", ios::out);
+	//if (instream.is_open()) {
+		//instream << 7845;
+		//instream.close();
+	//}
+	instream.open("df.txt", ios::in);
+	if (instream.is_open()) {
+		instream>>x;
+		cout << x;
+		instream.close();
+	}
+
+
+
+	return 0;
+}
