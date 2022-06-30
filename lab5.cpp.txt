@@ -1,0 +1,32 @@
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+
+int main() {
+	ifstream instream;
+	instream.open("notes.txt");
+	if (instream.fail()) {
+		cout << "Something went wrong.";
+	}
+	else {
+		cout << "Everithing is ok.";
+	}
+	while (true) {
+		string question, answer;
+		cout << "\nWhat is your next question: "; cin >> question;
+		if (instream >> answer) {
+			cout << answer << endl;
+		}
+		else {
+			instream.close();
+			instream.open("notes.txt");
+			instream >> answer;
+			cout << answer << endl;
+		}
+	
+	}
+
+
+	return 0;
+}
