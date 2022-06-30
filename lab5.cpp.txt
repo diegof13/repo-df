@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
-
+#include<cstdlib>
+#include<stdlib.h>
 using namespace std;
 
 int main() {
@@ -13,20 +14,29 @@ int main() {
 		cout << "Everithing is ok.";
 	}
 	while (true) {
-		string question, answer;
+		string question;
 		cout << "\nWhat is your next question: "; cin >> question;
-		if (instream >> answer) {
-			cout << answer << endl;
+		//if (instream >> answer) {
+			//cout << answer << endl;
+		//}
+		//else {
+			//instream.close();
+			//instream.open("notes.txt");
+			//instream >> answer;
+			//cout << answer << endl;
+		char answer[1000];
+		int count = 0;
+		instream.get(answer[count++]);
+		while (!instream.eof()) {
+			if (answer[count - 1] == '\n') {
+				system("cls");
+				cout << answer << endl;
+				count = 0;
+				break;
+				
+			}
+			instream.get(answer[count++]);
 		}
-		else {
-			instream.close();
-			instream.open("notes.txt");
-			instream >> answer;
-			cout << answer << endl;
-		}
-	
 	}
-
-
 	return 0;
 }
