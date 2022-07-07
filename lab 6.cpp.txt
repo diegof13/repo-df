@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int id, lab, station, selection;
+	//cout << "Enter user's 5-digit id: " ; cin >> id;
+	//cout << "\nEnter LAB number: "; cin >> lab;
+	//cout << "\nEnter station number: "; cin >> station;
+	cout << "\nSelect 1 of the following: " << endl; cin >> selection;
+	cout << "1. Login."<<endl;
+	cout << "2. Logoff"<<endl;
+	cout << "3. Search"<<endl;
+	cout << "4. Exit"<<endl;
+	switch (selection) {
+	case 1:
+
+	}
+
+	return 0;
+}
