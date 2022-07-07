@@ -4,7 +4,7 @@ using namespace std;
 const int rows = 4;
 int columns_per_row[rows]={5,6,4,3};
 int main() {
-	int** arr = new int* [rows], user_id, lab, machine;
+	int** arr = new int* [rows], user_id, lab, machine, selection;
 	arr[0] = new int[5];
 	arr[1] = new int[6];
 	arr[2] = new int[4];
@@ -15,34 +15,40 @@ int main() {
 		}
 		cout << endl;
 	}
-	user_id = 49193;
-	lab = 3;
-	machine = 2;
-	arr[lab - 1][machine - 1] = user_id;
-	for (int i = 0;i < rows;i++) {
-		for (int j = 0;j < columns_per_row[i];j++) {
-			if (arr[i][j] == 0) {
-				cout << " EMPTY  ";
+	do {
+		cout << "\nSelect 1 of the following: " << endl; 
+		cout << "1. Login" << endl;
+		cout << "2. Log-off" << endl;
+		cout << "3. Search" << endl;
+		cout << "4. Exit" << endl;
+		cin >> selection;
+		switch (selection) {
+		case 1: 
+			cout << "Enter user's 5-digit id: " ; cin >> user_id;
+			cout << "\nEnter LAB number: "; cin >> lab;
+			cout << "\nEnter station number: "; cin >> machine;
+			//user_id = 49193;
+			//lab = 3;
+			//machine = 2;
+			arr[lab - 1][machine - 1] = user_id;
+			for (int i = 0;i < rows;i++) {
+				for (int j = 0;j < columns_per_row[i];j++) {
+					if (arr[i][j] == 0) {
+						cout << " EMPTY  ";
+					}
+					else {
+						cout << arr[i][j] << "      ";
+					}
+				}
+				cout << endl;
 			}
-			else {
-				cout << arr[i][j] << "      ";
-			}
+			break;
 		}
-		cout << endl;
-	}
+		} while (selection!=4);
+
+	
 
 	return 0;
 }
+	
 
-	//cout << "Enter user's 5-digit id: " ; cin >> id;
-	//cout << "\nEnter LAB number: "; cin >> laboratory;
-	//cout << "\nEnter station number: "; cin >> station;
-	//cout << "\nSelect 1 of the following: " << endl; cin >> selection;
-	//cout << "1. Login."<<endl;
-	//cout << "2. Logoff"<<endl;
-	//cout << "3. Search"<<endl;
-	//cout << "4. Exit"<<endl;
-	//switch (selection) {
-	//case 1:
-
-	//}
