@@ -1,0 +1,24 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdlib>
+using namespace std;
+
+int ngrades, *grade;
+void askdata() {
+	cout << "How many grades: "; cin >> ngrades;
+	grade = new int[ngrades];
+	for (int i = 0;i < ngrades;i++) {
+		cout << "Enter grade for position [" << i << "]: "; cin >> grade[i];
+	}
+}
+void showdata() {
+	for (int i = 0;i < ngrades;i++) {
+		cout << grade[i]<<endl;
+	}
+}
+int main() {
+	askdata();
+	showdata();
+	delete[] grade;
+	return 0;
+}
