@@ -1,0 +1,78 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+class RationalNumber{
+	int num, den;
+public:
+	void read(){
+		cout << "Enter Numerator for Rational Number" << endl; cin >> num;
+		cout << "Enter Denominator for Rational Number" << endl; cin >> den;
+	}
+	void add(RationalNumber a, RationalNumber b){
+		num = a.num * b.den + a.den * b.num;
+		den = a.den * b.den;
+		hcf();
+		cout << "Rational Numbers Addition Completed" << endl;
+	}
+	void sub(RationalNumber a, RationalNumber b){
+		num = a.num * b.den - a.den * b.num;
+		den = a.den * b.den;
+		hcf();
+		cout << "Rational Numbers Subtraction Completed" << endl;
+	}
+	void mul(RationalNumber a, RationalNumber b){
+		num = a.num * b.num;
+		den = a.den * b.den;
+		hcf();
+		cout << "Rational Numbers Multiplication Completed" << endl;
+	}
+	void div(RationalNumber a, RationalNumber b){
+		num = a.num * b.den;
+		den = a.den * b.num;
+		hcf();
+		cout << "Rational Numbers Division Completed" << endl;
+	}
+	void lessthan(RationalNumber a, RationalNumber b){
+		num = a.num * b.den;
+		den = a.den * b.num;
+		if (num < den) {
+			cout << "Rational Numbers less than opertion is true between two numbers " << endl;
+		}
+		else {
+			cout << "Rational Numbers less than opertion is false between two numbers " << endl;
+		}
+	}
+	int hcf(){
+		int a, b, c;
+		a = num;
+		b = den;
+		do{
+			c = a % b;
+			a = b;
+			b = c;
+		}while (c != 0);
+		num = num / a;
+		den = den / a;
+	}
+	void print(){
+		cout << "Result is : " << num << "/" << den << endl;
+	}
+};
+int main(){
+	RationalNumber r1, r2, r3;
+	r1.read();
+	r2.read();
+	r3.add(r1, r2);
+	r3.print();
+	r3.sub(r1, r2);
+	r3.print();
+	r3.mul(r1, r2);
+	r3.print();
+	r3.div(r1, r2);
+	r3.print();
+	r3.lessthan(r1, r2);
+}
