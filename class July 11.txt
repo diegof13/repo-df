@@ -1,0 +1,52 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdlib>
+#include<string>
+using namespace std; 
+
+class car {
+//public:
+	int year;
+	string model;
+	string make;
+public:
+	car() {
+		year = 2022;
+		model = "X";
+		make = "Nissan";  
+	}
+	void set_year(int a) {
+		year = a;
+	}
+	int get_year() {
+		return year;
+	}
+	string get_make(){
+		return make;
+	}
+};
+int main() {
+	car x;
+	//x.make = "Ford";
+	x.set_year(2012);
+	//x.year = 2012;
+	//x.model = "Explorer";
+	car y;
+	//y.make = "Honda";
+	//y.year = 2015;
+	//y.model = "Civic";
+	y.set_year(2015);
+	
+	//x.model = y.model;
+	//cout << x.model;
+	
+	//car *p1;
+	//p1 = &y;
+	//(*p1).year = 2016;
+	//cout << y.get_year();
+
+	car z;
+	cout << z.get_make();
+
+	return 0;
+}
