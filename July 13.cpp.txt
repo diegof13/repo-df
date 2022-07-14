@@ -1,0 +1,88 @@
+#include<iostream>
+
+using namespace std;
+
+class Movie {
+	private:
+		string name;
+		string MBAA;
+		int terrible_count;
+		int bad_count;
+		int ok_count;
+		int good_count;
+		int great_count;
+		float average;
+public:
+	Movie(string name, string MBAA) {
+		this->name = name;
+		this->MBAA = MBAA;
+		terrible_count = 0;
+		bad_count = 0;
+		ok_count = 0;
+		good_count = 0;
+		great_count = 0;
+	}
+	Movie() {
+		terrible_count = 0;
+		bad_count = 0;
+		ok_count = 0;
+		good_count = 0;
+		great_count = 0;
+	}
+	void addrating(int category) {
+		if (category == 1) {
+			terrible_count++;
+		}
+		else if (category == 2)
+			bad_count++;
+		else if (category == 3)
+			ok_count++;
+		else if (category == 4)
+			good_count++;
+		else if (category == 5)
+			great_count++;
+		else
+			cout << "Bad category." << endl;
+	}
+	string getname(){
+		return name;
+	}
+	string getMBAA() {
+		return MBAA;
+	}
+	void setname(string name) {
+		this->name = name;
+	}
+	void setMBAA(string MBAA) {
+		this->MBAA = MBAA;
+	}
+	double getaverage() {
+		return (terrible_count *(1) + bad_count * (2) + ok_count * (3) + good_count * (4) + great_count * (5))/5.0;
+	}
+};
+
+int main() {
+	Movie movie1("300", "R");
+	movie1.addrating(1);//Terrible
+	movie1.addrating(1);//Terrible
+	movie1.addrating(3);//ok
+	movie1.addrating(3);//ok
+	movie1.addrating(5);//Great
+	cout<<movie1.getname()<<endl;//300
+	cout<<movie1.getMBAA()<<endl;//R
+	cout << movie1.getaverage()<<endl;//2.6
+
+	Movie movie2;
+	movie2.setname("Goodfather");
+	movie2.setMBAA("PG-13");
+	movie2.addrating(1);//Terrible
+	movie2.addrating(1);//Terrible
+	movie2.addrating(5);//great
+	movie2.addrating(5);//great
+	movie2.addrating(5);//great
+	cout<<endl<<movie2.getname()<<endl;//Goodfather
+	cout<<movie2.getMBAA()<<endl;//PG-13
+	cout << movie2.getaverage();//3.4  
+
+	return 0;
+}
