@@ -2,6 +2,43 @@
 
 using namespace std;
 
+class Movie {
+private:
+	string name;
+	string MPAA;
+	int terrible_count;
+	int bad_count;
+	int ok_count;
+	int good_count;
+	int great_count;
+	float average;
+public:
+	Movie(string name, string MPAA) {
+		
+	}
+	Movie() {
+		
+	}
+	void addrating(int category) {
+		
+	}
+	string getname() {
+		
+	}
+	string getMPAA() {
+		
+	}
+	void setname(string name) {
+		
+	}
+	void setMPAA(string MPAA) {
+		
+	}
+	double getaverage() {
+		
+	}
+};
+
 int main() {
 	Movie movie1("Forrest Gump", "G");
 	movie1.addrating(3);//Ok
