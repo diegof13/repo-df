@@ -1,0 +1,29 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	Movie movie1("Forrest Gump", "G");
+	movie1.addrating(3);//Ok
+	movie1.addrating(3);//Ok
+	movie1.addrating(5);//Great
+	movie1.addrating(5);//Great
+	movie1.addrating(5);//Great
+	cout << movie1.getname() << endl;//Forrest Gump
+	cout << movie1.getMPAA() << endl;//G
+	cout << movie1.getaverage() << endl;//4.2
+
+	Movie movie2;
+	movie2.setname("Zoolander");
+	movie2.setMPAA("PG-13");
+	movie2.addrating(1);//Terrible
+	movie2.addrating(1);//Terrible
+	movie2.addrating(1);//Terrible
+	movie2.addrating(2);//Bad
+	movie2.addrating(3);//Ok
+	cout << endl << movie2.getname() << endl;//Zoolander
+	cout << movie2.getMPAA() << endl;//PG-13
+	cout << movie2.getaverage();//1.6  
+
+	return 0;
+}
