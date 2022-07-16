@@ -1,0 +1,20 @@
+#include<iostream>
+#include<cstdlib>
+#include<stdlib.h>
+#include<string>
+using namespace std;
+
+class Rational_number {
+
+};
+
+int main() {
+	Rational_number number1(5, 4);//Constructor 
+	number1.get_1st_number();//  5/4
+	number1.add();//   9
+	number1.sub();//   1
+	number1.mult();//  20
+	number1.div();//   5/4
+
+	return 0;
+}
