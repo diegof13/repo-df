@@ -10,22 +10,32 @@ class Rational_number {
 	int b;
 public:
 	Rational_number(int a, int b) {
-
+		this->a = a;
+		this->b = b;
 	}
 	void add(int sum = 0) {
-
+		cout << "\nThe sum of the 2 numbers is: ";
+		sum = a + b;
+		cout << sum;
 	}
 	void sub(int res = 0) {
-
+		cout << "\nThe substraction of the 2 numbers is: ";
+		res = a - b;
+		cout << res;
 	}
 	void mult(int prod = 1) {
-
+		cout << "\nThe product of the 2 numbers is: ";
+		prod = a * b;
+		cout << a << "*" << b << " = " << prod;
 	}
 	void div(int ov = 1) {
-	
+		cout << "\nThe division of the 2 numbers is: ";
+		cout << a << "/" << b;
 	}
 	int get_1st_number() {
-
+		cout << "The first number is:";
+		cout << a << "/" << b << endl;
+		return a, b;
 	}
 };
 
