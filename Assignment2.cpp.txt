@@ -5,7 +5,28 @@
 using namespace std;
 
 class Rational_number {
+	private:
+	int a;
+	int b;
+public:
+	Rational_number(int a, int b) {
 
+	}
+	void add(int sum = 0) {
+
+	}
+	void sub(int res = 0) {
+
+	}
+	void mult(int prod = 1) {
+
+	}
+	void div(int ov = 1) {
+	
+	}
+	int get_1st_number() {
+
+	}
 };
 
 int main() {
