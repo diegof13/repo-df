@@ -19,24 +19,56 @@ public:
 		this->d = d;
 	}
 	void add(int sum = 0) {
+		int simp1 = 1, simp2 = 1;
 		cout << "\nThe sum of the 2 numbers is: ";//((a * d) + (b * c)) / d * c;
 		sum = (a * d) + (b * c);
-		cout << a << "/" << b << " + " << c << "/" << d << " = " << sum << "/" << b * d << endl;
+		if (sum % 2 == 0 and (b*d)%2==0) {
+			simp1 = sum / 2;
+			simp2 = (b * d) / 2;
+			cout << a << "/" << b << " + " << c << "/" << d << " = " << sum << "/" << b * d << " = " << simp1 << "/" << simp2 << endl;
+		}
+		else {
+			cout << a << "/" << b << " + " << c << "/" << d << " = " << sum << "/" << b * d << endl;
+		}
 	}
 	void sub(int res = 0) {
+		int simp3 = 1, simp4 = 1;
 		cout << "\nThe substraction of the 2 numbers is: ";//((a * d) - (b * c)) / d * c;
 		res = (a * d) - (b * c);
-		cout << a << "/" << b << " - " << c << "/" << d << " = " << res << "/" << b * d << endl;
+		if (res % 2 == 0 and (b * d) % 2 == 0) {
+			simp3 = res / 2;
+			simp4 = (b * d) / 2;
+			cout << a << "/" << b << " - " << c << "/" << d << " = " << res << "/" << b * d << " = " << simp3 << "/" << simp4 << endl;
+		}
+		else {
+			cout << a << "/" << b << " - " << c << "/" << d << " = " << res << "/" << b * d << endl;
+		}
 	}
 	void mult(int prod = 1) {
+		int simp5=1, simp6=1;
 		cout << "\nThe product of the 2 numbers is: ";
 		prod = a * c;
-		cout << a << "/" << b << " * " << c << "/" << d << " = " << prod << "/" << b * d << endl;
+		if (prod % 2 == 0 and (b * d) % 2 == 0) {
+			simp5 = prod / 2;
+			simp6 = (b * d) / 2;
+			cout << a << "/" << b << " * " << c << "/" << d << " = " << prod << "/" << b * d << " = " << simp5 << "/" << simp6 << endl;
+		}
+		else {
+			cout << a << "/" << b << " * " << c << "/" << d << " = " << prod << "/" << b * d << endl;
+		}
 	}
 	void div(int ov = 1) {
+		int simp7=1, simp8=1;
 		cout << "\nThe division of the 2 numbers is: ";
 		ov = b * c;
-		cout << "(" << a << "/" << b << ")" << "/" << "(" << c << "/" << d << ")" << " = " << a * d << "/" << ov << endl;
+		if (ov % 2 == 0 and (a * d) % 2 == 0) {
+			simp7 = ov / 2;
+			simp8 = (a * d) / 2;
+			cout << "(" << a << "/" << b << ")" << "/" << "(" << c << "/" << d << ")" << " = " << a * d << "/" << ov << " = " << simp8 << "/" << simp7 << endl;
+		}
+		else {
+			cout << "(" << a << "/" << b << ")" << "/" << "(" << c << "/" << d << ")" << " = " << a * d << "/" << ov << endl;
+		}
 	}
 	int get_1st_number() {
 		cout << "The first number is:";
@@ -65,10 +97,10 @@ int main() {
 	int n1 = 3, d1 = 4, n2 = 3, d2 = 2;
 	Rational_number number1(n1, d1, n2, d2);//Constructor 
 	number1.get_1st_number();//  3/4  and  3/2
-	number1.add();//   18/8
-	number1.sub();//   -6/8
-	number1.mult();//  9/8
-	number1.div();//   6/12
+	number1.add();//   18/8 = 9/4
+	number1.sub();//   -6/8 = -3/4
+	number1.mult();//  9/8 = 9/8
+	number1.div();//   6/12 = 3/6
 	number1.less_than(n1,d1,n2,d2);//1
 
 	return 0;
