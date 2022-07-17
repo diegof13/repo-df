@@ -2,6 +2,7 @@
 #include<cstdlib>
 #include<stdlib.h>
 #include<string>
+#include<stdbool.h>
 using namespace std;
 
 class Rational_number {
@@ -44,15 +45,31 @@ public:
 		cout << c << "/" << d << endl;
 		return a, b, c, d;
 	}
+	bool less_than(int a, int b, int c, int d) {
+		float x1, x2;
+		x1 = a / b;
+		x2 = c / d;
+		if (x1 < x2) {
+			cout << "\nBool value :" << true << endl;
+			cout << endl << a << "/" << b << " is less than " << c << "/" << d << endl;
+		}
+		else {
+			cout << "\nBool value :" << false << endl;
+			cout << endl << a << "/" << b << " is not less than " << c << "/" << d << endl;
+		}
+		return x1, x2;
+	}
 };
 
 int main() {
-	Rational_number number1(5, 4, 1, 2);//Constructor 
-	number1.get_1st_number();//  5/4  and  1/2
-	number1.add();//   14/8
-	number1.sub();//   6/8
-	number1.mult();//  5/8
-	number1.div();//   10/4
+	int n1 = 3, d1 = 4, n2 = 3, d2 = 2;
+	Rational_number number1(n1, d1, n2, d2);//Constructor 
+	number1.get_1st_number();//  3/4  and  3/2
+	number1.add();//   18/8
+	number1.sub();//   -6/8
+	number1.mult();//  9/8
+	number1.div();//   6/12
+	number1.less_than(n1,d1,n2,d2);//1
 
 	return 0;
 }
