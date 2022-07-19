@@ -95,6 +95,11 @@ public:
 			}
 		}
 	}
+	void equality() {
+		if (a == c and b == d) {
+			cout << "\nBoth rational numbers are the same number." << endl;
+		}
+	}
 	int get_1st_number() {
 		cout << "The first number is:";
 		cout << a << "/" << b << endl;
@@ -132,6 +137,7 @@ int main() {
 	number1.mult();//  9/8 = 9/8      
 	number1.div();//   6/12 = 3/6
 	number1.less_than(n1,d1,n2,d2);//1
+	number1.equality();
 
 	return 0;
 }
