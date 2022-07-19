@@ -129,7 +129,9 @@ public:
 };
 
 int main() {
-	int n1 = 3, d1 = 4, n2 = 3, d2 = 2;
+	int n1, d1, n2, d2;//3,4,3,2
+	cout << "\nEnter numerator and denominator of the first rational number: "<<endl; cin >> n1 >> d1;
+	cout << "\nEnter numerator and denominator of the second rational number: "<<endl; cin >> n2 >> d2;
 	Rational_number number1(n1, d1, n2, d2);//Constructor 
 	number1.get_1st_number();//  3/4  and  3/2    
 	number1.add();//   18/8 = 9/4
