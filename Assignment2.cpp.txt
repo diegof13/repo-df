@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include<stdlib.h>
-#include<string>
+#include<fstream>
 #include<stdbool.h>
 using namespace std;
 
@@ -129,7 +129,7 @@ public:
 };
 
 int main() {
-	int n1, d1, n2, d2;//3,4,3,2
+	int n1 , d1 , n2 , d2 ;//3,4,3,2
 	cout << "\nEnter numerator and denominator of the first rational number: "<<endl; cin >> n1 >> d1;
 	cout << "\nEnter numerator and denominator of the second rational number: "<<endl; cin >> n2 >> d2;
 	Rational_number number1(n1, d1, n2, d2);//Constructor 
@@ -138,7 +138,7 @@ int main() {
 	number1.sub();//   -6/8 = -3/4
 	number1.mult();//  9/8 = 9/8      
 	number1.div();//   6/12 = 3/6
-	number1.less_than(n1,d1,n2,d2);//1
+	number1.less_than(n1, d1, n2, d2);//1
 	number1.equality();
 
 	return 0;

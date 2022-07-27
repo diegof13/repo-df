@@ -6,43 +6,58 @@ class Movie {
 private:
 	string name;
 	string MPAA;
-	int terrible_count;
-	int bad_count;
-	int ok_count;
-	int good_count;
-	int great_count;
-	float average;
+	//int terrible_count;
+	//int bad_count;
+	//int ok_count;
+	//int good_count;
+	//int great_count;
+	//float average;
+	int *arr;
 public:
 	Movie(string name, string MPAA) {
 		this->name = name;
 		this->MPAA = MPAA;
-		terrible_count = 0;
-		bad_count = 0;
-		ok_count = 0;
-		good_count = 0;
-		great_count = 0;
+		//terrible_count = 0;
+		//bad_count = 0;
+		//ok_count = 0;
+		//good_count = 0;
+		//great_count = 0;
+		arr = new int[5];
+		for (int i = 0;i < 5;i++) {
+			arr[i] = 0;
+		}
 	}
 	Movie() {
-		terrible_count = 0;
-		bad_count = 0;
-		ok_count = 0;
-		good_count = 0;
-		great_count = 0;
+		//terrible_count = 0;
+		//bad_count = 0;
+		//ok_count = 0;
+		//good_count = 0;
+		//great_count = 0;
+		arr = new int[5];
+		for (int i = 0;i < 5;i++) {
+			arr[i] = 0;
+		}
 	}
 	void addrating(int category) {
-		if (category == 1) {
-			terrible_count++;
+		//if (category == 1) {
+			//terrible_count++;
+		//}
+		//else if (category == 2)
+			//bad_count++;
+		//else if (category == 3)
+			//ok_count++;
+		//else if (category == 4)
+			//good_count++;
+		//else if (category == 5)
+			//great_count++;
+		//else
+			//cout << "Bad category." << endl;
+		if (category < 1 or category>5) {
+			cout << "\nBad category. Please, try again: "<<endl;
 		}
-		else if (category == 2)
-			bad_count++;
-		else if (category == 3)
-			ok_count++;
-		else if (category == 4)
-			good_count++;
-		else if (category == 5)
-			great_count++;
-		else
-			cout << "Bad category." << endl;
+		else {
+			arr[category - 1]++;
+		}
 	}
 	string getname() {
 		return name;
@@ -57,7 +72,28 @@ public:
 		this->MPAA = MPAA;
 	}
 	double getaverage() {
-		return (terrible_count * (1) + bad_count * (2) + ok_count * (3) + good_count * (4) + great_count * (5)) / 5.0;
+		int sum = 0;
+		int sum2 = 0;
+		for (int i = 0;i < 5; i++) {
+			sum = sum + arr[i] * (i + 1);
+			sum2 = sum2 + arr[i];
+		}
+		return sum / (sum2 * 1.0);
+		//return (terrible_count * (1) + bad_count * (2) + ok_count * (3) + good_count * (4) + great_count * (5)) / 5.0;
+	}
+	Movie(Movie& y) {
+		this->arr = new int[5];
+		for (int i = 0;i < 5;i++) {
+			this->arr[i] = y.arr[i];
+		}
+	}
+	void operator=(Movie x) {
+		for (int i = 0;i < 5;i++) {
+			this ->arr[i] = x.arr[i];
+		}
+	}
+	~Movie() {
+		delete[]arr;
 	}
 };
 
@@ -82,7 +118,12 @@ int main() {
 	movie2.addrating(3);//Ok
 	cout << endl << movie2.getname() << endl;//Zoolander
 	cout << movie2.getMPAA() << endl;//PG-13
-	cout << movie2.getaverage();//1.6  
+	cout << movie2.getaverage()<<endl;//1.6  
+
+	movie1 = movie2;
+	movie1.addrating(5);
+	cout << movie2.getaverage() << endl;
+	cout << movie1.getaverage() << endl;
 
 	return 0;
 }
