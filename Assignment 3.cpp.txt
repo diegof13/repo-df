@@ -1,79 +1,45 @@
-#include <iostream>
-#include<stdlib.h>
-#include<cstdlib>
+#include<iostream>
+
 using namespace std;
 
-class Polynomial {
-	int arr1[' '], arr2[' '], arr3[' '], m, n, x, i, j;
-public:
-	void askdata();
-	void add();
-	void subs();
-	void mult();
-	void showdata();
-};
-void Polynomial::askdata() {
-	cout << "Enter highest exponential of 1st polynomial: "; cin >> n;
-	for (i = 0;i < n;i++) {
-		cout << "\nEnter coeficient ["<<i<<"] of 1st polynomial : "; cin >> arr1[i];
-	}
-	cout << "\nEnter highest exponential of 2nd polynomial: "; cin >> m;
-	for (i = 0;i < n;i++) {
-		cout << "\nEnter coeficient ["<<i<<"] of 2nd polynomial : "; cin >> arr2[i];
-	}
-}
-void Polynomial::add() {
-	if (m == n) {
-		for (i = 0;i < n;i++) {
-			arr3[i] = arr1[i] + arr2[i];
-		}
-	}
-}
-void Polynomial::subs() {
-	if (m == n) {
-		for (i = 0;i < n;i++) {
-			arr3[i] = arr1[i] - arr2[i];
-		}
-	}
-}
-void Polynomial::mult() {
-	if (m == n) {
-		for (i = 0;i < n;i++) {
-			arr3[i] = arr1[i] * arr2[i];
-		}
-	}
-}
-void Polynomial::showdata() {
-	x = i - 1;
-	for (j = x;j >= 0;j--) {
-		if (j == 0) {
-			cout << arr3[j];
-			break;
-		}
-		cout << arr3[j] << "(x^" << x << ")" << "+";
-		x--;
-	}
-}
 int main() {
-	Polynomial p1;
-	cout << "(ADDITION)" << endl;
-	p1.askdata();
-	p1.add();
-	Polynomial p2;
-	cout << "\n(SUBSTRACTION)" << endl;
-	p2.askdata();
-	p2.subs();
-	Polynomial p3;
-	cout << "\n(MULTIPLICATION)" << endl;
-	p3.askdata();
-	p3.mult();
-	system("cls");
-	cout << "  Addition = ";
-	p1.showdata();
-	cout << "\n  Substraction = ";
-	p2.showdata();
-	cout << "\n  Multiplication = ";
-	p3.showdata();
+	int n, *Poly1, *Poly2, *Poly3;//POINTERS
+	cout << "Type size of polynomial: "; cin >> n;
+	Poly1 = new int[n];
+	Poly2 = new int[n];
+	Poly3 = new int[n];
+	cout << "(POLYNOMIAL #1)" << endl;
+	for (int i = 0;i < n;i++) {//ASIGN VALUES
+		cout << "\nType coefficient [" << i << "]: "; cin>>Poly1[i];
+	}
+	cout << "(POLYNOMIAL #2)" << endl;
+	for (int i = 0;i < n;i++) {
+		cout <<endl<< "\nType coefficient [" << i << "]: "; cin >> Poly2[i];
+	}
+	for (int i = 0;i < n;i++) {//SHOW POLYNOMIALS
+		cout << Poly1[i] << " ";
+	}cout << endl;
+	for (int i = 0;i < n;i++) {
+		cout << Poly2[i] << " ";
+	}
+	for (int i = 0;i < n;i++) {//ADITION
+		Poly3[i] = Poly1[i] + Poly2[i];
+	}cout << endl;
+	for (int i = 0;i < n;i++) {
+		cout << Poly3[i] << " ";
+	}
+	for (int i = 0;i < n;i++) {//SUBSTRACTION
+		Poly3[i] = Poly1[i] - Poly2[i];
+	}cout << endl;
+	for (int i = 0;i < n;i++) {
+		cout << Poly3[i] << " ";
+	}
+
+
+	delete[] Poly1;
+	delete[] Poly2;
+	delete[] Poly3;
+
 
 	return 0;
 }
