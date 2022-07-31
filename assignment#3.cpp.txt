@@ -3,27 +3,30 @@
 using namespace std;
 
 int main() {
-	int Poly1[11], Poly2[11], Poly3[11], n;
-	cout << "Enter size of the polynomials: "; cin >> n;
-	cout << "  (1ST POLYNOMIAL)";
+	int n, * Poly1, * Poly2, * Poly3;//POINTERS
+	cout << "Type size of polynomial: "; cin >> n;
+	Poly1 = new int[n];
+	Poly2 = new int[n];
+	Poly3 = new int[n];
+	cout << "(POLYNOMIAL #1)" << endl;
+	for (int i = 0;i < n;i++) {//ASIGN VALUES
+		cout << "\nType coefficient [" << i << "]: "; cin >> Poly1[i];
+	}
+	cout << "(POLYNOMIAL #2)" << endl;
 	for (int i = 0;i < n;i++) {
-		cout << "\n Type coefficient [" << i << "]: "; cin >> Poly1[i];
+		cout << endl << "\nType coefficient [" << i << "]: "; cin >> Poly2[i];
 	}
-	cout << "  (2ND POLYNOMIAL)";
-	for (int j = 0;j < n;j++) {
-		cout << "\n Type coefficient [" << j << "]: "; cin >> Poly2[j];
-	}
-	for (int i = 0;i < n;i++) {//SHOW ARRAYS
+	for (int i = 0;i < n;i++) {//SHOW POLYNOMIALS
 		cout << Poly1[i] << " ";
 	}cout << endl;
-	for (int j = 0;j < n;j++) {
-		cout << Poly2[j] << " ";
+	for (int i = 0;i < n;i++) {
+		cout << Poly2[i] << " ";
 	}
-	for (int i = 0;i < n;i++) {//ADITTION
+	for (int i = 0;i < n;i++) {//ADITION
 		Poly3[i] = Poly1[i] + Poly2[i];
 	}cout << endl;
 	for (int i = 0;i < n;i++) {
-		cout << Poly3[i]<<" ";
+		cout << Poly3[i] << " ";
 	}
 	for (int i = 0;i < n;i++) {//SUBSTRACTION
 		Poly3[i] = Poly1[i] - Poly2[i];
@@ -32,14 +35,19 @@ int main() {
 		cout << Poly3[i] << " ";
 	}cout << endl;
 	for (int i = 0;i < n;i++) {//PRODUCT
-		for (int j = 0;j < n;j++) {
-			Poly3[i + j] = Poly1[i] * Poly2[j];
+		for (int i = 0;i < n;i++) {
+			Poly3[i + i] = Poly1[i] * Poly2[i];
 		}
 	}
 	for (int i = 0;i < n;i++) {
-		for (int j = 0;j < n;j++) {
-			cout << Poly3[i + j] << " ";
+		for (int i = 0;i < n;i++) {
+			cout << Poly3[i + i] << " ";
 		}
 	}
+	delete[] Poly1;
+	delete[] Poly2;
+	delete[] Poly3;
+
+
 	return 0;
 }
