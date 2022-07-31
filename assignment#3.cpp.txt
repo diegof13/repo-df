@@ -2,52 +2,27 @@
 
 using namespace std;
 
-int main() {
-	int n, * Poly1, * Poly2, * Poly3;//POINTERS
-	cout << "Type size of polynomial: "; cin >> n;
-	Poly1 = new int[n];
-	Poly2 = new int[n];
-	Poly3 = new int[n];
-	cout << "(POLYNOMIAL #1)" << endl;
-	for (int i = 0;i < n;i++) {//ASIGN VALUES
-		cout << "\nType coefficient [" << i << "]: "; cin >> Poly1[i];
-	}
-	cout << "(POLYNOMIAL #2)" << endl;
-	for (int i = 0;i < n;i++) {
-		cout << endl << "\nType coefficient [" << i << "]: "; cin >> Poly2[i];
-	}
-	for (int i = 0;i < n;i++) {//SHOW POLYNOMIALS
-		cout << Poly1[i] << " ";
-	}cout << endl;
-	for (int i = 0;i < n;i++) {
-		cout << Poly2[i] << " ";
-	}
-	for (int i = 0;i < n;i++) {//ADITION
-		Poly3[i] = Poly1[i] + Poly2[i];
-	}cout << endl;
-	for (int i = 0;i < n;i++) {
-		cout << Poly3[i] << " ";
-	}
-	for (int i = 0;i < n;i++) {//SUBSTRACTION
-		Poly3[i] = Poly1[i] - Poly2[i];
-	}cout << endl;
-	for (int i = 0;i < n;i++) {
-		cout << Poly3[i] << " ";
-	}cout << endl;
-	for (int i = 0;i < n;i++) {//PRODUCT
+class Polynomial {
+public:
+	void ask_data() {
+		int n, Poly1[11], Poly2[11], Poly3[11];
+		cout << "Enter size of polynomials: "; cin >> n;
+		cout << "  (1ST POLYNOMIAL)";
 		for (int i = 0;i < n;i++) {
-			Poly3[i + i] = Poly1[i] * Poly2[i];
+			cout << "  \nEnter coefficient [" << i << "]: "; cin >> Poly1[i];
+		}
+		cout << "  (2ND POLYNOMIAL)";
+		for (int i = 0;i < n;i++) {
+			cout << "  \nEnter coefficient [" << i << "]: "; cin >> Poly2[i];
 		}
 	}
-	for (int i = 0;i < n;i++) {
-		for (int i = 0;i < n;i++) {
-			cout << Poly3[i + i] << " ";
-		}
-	}
-	delete[] Poly1;
-	delete[] Poly2;
-	delete[] Poly3;
+};
 
+int main() {
+	Polynomial p;
+	p.ask_data();
+	//p.addition();
+	//p.show_data();
 
 	return 0;
 }
