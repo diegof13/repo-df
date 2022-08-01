@@ -3,13 +3,19 @@
 using namespace std;
 
 class Polynomial {
-	int * Poly1, * Poly2, * Poly3, n;
+	int* Poly1, * Poly2, * Poly3, n;
 public:
-	Polynomial() {
+	Polynomial() {//Default
 		Poly1 = new int[n];
 		Poly2 = new int[n];
 		Poly3 = new int[n];
 	};
+	//Polynomial(int arr1, int arr2, int arr3) {//Parametrized
+		
+	//};
+	//Polynomial() {//Copy
+
+	//};
 
 	void ask_data() {//Asking data
 		cout << "Enter size of polynomials: "; cin >> n;
@@ -50,16 +56,18 @@ public:
 			cout << "  " << Poly3[i] << " ";
 		}
 	}
-	//void product() {
-		//for (int i = 0;i < n;i++) {
-			//for (int j = 0;j < n;j++) {
-			  // Poly3[i+j] = Poly1[i] * Poly2[j];
-			//}
-		//}
-		//for (int i = 0;i < n;i++) {
-			//cout << "  " << Poly3[i] << " ";
-		//}
-	//}
+	void product() {
+		for (int i = 0;i < n;i++) {
+			for (int j = 0;j < n;j++) {
+				Poly3[i + j] = Poly1[i] * Poly2[j];
+			}
+		}cout << "\nProduct= ";
+		for (int i = 0;i < n;i++) {
+			for (int j = 0;j < n;j++) {
+				cout << "  " << Poly3[i]<<" ";
+			}
+		}
+	}
 	~Polynomial() {
 		delete[] Poly1;
 		Poly1 = NULL;
@@ -76,7 +84,7 @@ int main() {
 	p.show_polynomials();
 	p.addition();
 	p.subtraction();
-	//p.product();
+	p.product();
 
 	return 0;
 }
