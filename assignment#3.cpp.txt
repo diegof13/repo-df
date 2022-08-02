@@ -37,17 +37,21 @@ public:
 	void set_name2(string Polynomial2) {
 		this->Polynomial2 = Polynomial2;
 	}
-	void askdata1(int a) {
-		for (int i = 0;i < 3;i++) {
-			arr1[i]=a++;
-		}
-		//arr1[a];
+	void askdata1() {
+		//for (int i = 0;i < 3;i++) {
+			//arr1[i]=a++;
+		//}
+		arr1[0] = 5;
+		arr1[1] = 4;
+		arr1[2] = 6;
 	}
-	void askdata2(int b) {
-		for (int j = 0;j < 3;j++) {
-			arr2[j]=b++;
-		}
-		//arr2[b];
+	void askdata2() {
+		//for (int j = 0;j < 3;j++) {
+			//arr2[j]=b++;
+		//}
+		arr2[0] = 1;
+		arr2[1] = 2;
+		arr2[2] = 3;
 	}
 	void get_array1() {
 		for (int i = 0;i < 3;i++) {
@@ -95,12 +99,8 @@ int main() {
 	Poly p("1st Polynimial", "2nd Polynomial");
 	cout << p.get_name1() << endl;
 	cout << p.get_name2() << endl;
-	p.askdata1(3);
-	p.askdata1(4);
-	p.askdata1(5);
-	p.askdata2(1);
-	p.askdata2(2);
-	p.askdata2(3);
+	p.askdata1();
+	p.askdata2();
 	p.get_array1();
 	cout << endl;
 	p.get_array2();
