@@ -2,89 +2,114 @@
 
 using namespace std;
 
-class Polynomial {
-	int* Poly1, * Poly2, * Poly3, n;
+class Poly {
+private:
+	string Polynomial1, Polynomial2;
+	int arr1[6], arr2[6], arr3[100];
 public:
-	Polynomial() {//Default
-		Poly1 = new int[n];
-		Poly2 = new int[n];
-		Poly3 = new int[n];
-	};
-	//Polynomial(int arr1, int arr2, int arr3) {//Parametrized
-		
-	//};
-	//Polynomial() {//Copy
-
-	//};
-
-	void ask_data() {//Asking data
-		cout << "Enter size of polynomials: "; cin >> n;
-		cout << "  (1ST POLYNOMIAL)";
-		for (int i = 0;i < n;i++) {
-			cout << "  \nEnter coefficient [" << i << "]: "; cin >> Poly1[i];
+	Poly(string Polynomial1, string Polynomial2) {
+		this->Polynomial1 = Polynomial1;
+		this->Polynomial2 = Polynomial2; 
+		//for (int i = 0;i < 3;i++) {
+			//arr1[i] = 0;
+		//}
+		//for (int i = 0;i < 3;i++) {
+			//arr2[i] = 0;
+		//}
+	}
+	Poly() {
+		//for (int i = 0;i < 3;i++) {
+			//arr1[i] = 0;
+		//}
+		//for (int i = 0;i < 3;i++) {
+			//arr2[i] = 0;
+		//}
+	}
+	string get_name1() {
+		return Polynomial1;
+	}
+	string get_name2() {
+		return Polynomial2;
+	}
+	void set_name1(string Polynomial1) {
+		this->Polynomial1 = Polynomial1;
+	}
+	void set_name2(string Polynomial2) {
+		this->Polynomial2 = Polynomial2;
+	}
+	void askdata1(int a) {
+		for (int i = 0;i < 3;i++) {
+			arr1[i]=a++;
 		}
-		cout << "  (2ND POLYNOMIAL)";
-		for (int i = 0;i < n;i++) {
-			cout << "  \nEnter coefficient [" << i << "]: "; cin >> Poly2[i];
+		//arr1[a];
+	}
+	void askdata2(int b) {
+		for (int j = 0;j < 3;j++) {
+			arr2[j]=b++;
+		}
+		//arr2[b];
+	}
+	void get_array1() {
+		for (int i = 0;i < 3;i++) {
+			cout << arr1[i] << " ";
 		}
 	}
-	void show_polynomials() {//showing polynomials
-		cout << "P1 = ";
-		for (int i = 0;i < n;i++) {
-			cout << "  " << Poly1[i] << " ";
-		}cout << endl;
-		cout << "P2 = ";
-		for (int i = 0;i < n;i++) {
-			cout << "  " << Poly2[i] << " ";
+	void get_array2() {
+		for (int i = 0;i < 3;i++) {
+			cout << arr2[i] << " ";
 		}
 	}
-	void addition() {
-		for (int i = 0;i < n;i++) {
-			Poly3[i] = Poly1[i] + Poly2[i];
-		}cout << endl;
-		cout << "p1+p2=";
-		for (int i = 0;i < n;i++) {
-			cout << "  " << Poly3[i] << " ";
+	void add() {
+		for (int i = 0;i < 3;i++) {
+			arr3[i] = arr1[i] + arr2[i];
+		}cout << "SUM= ";
+		for (int i = 0;i < 3;i++) {
+			cout << " " << arr3[i] << " ";
 		}
 	}
-	void subtraction() {
-		for (int i = 0;i < n;i++) {
-			Poly3[i] = Poly1[i] - Poly2[i];
-		}cout << endl;
-		cout << "p1-p2=";
-		for (int i = 0;i < n;i++) {
-			cout << "  " << Poly3[i] << " ";
+	void subs() {
+		for (int i = 0;i < 3;i++) {
+			arr3[i] = arr1[i] - arr2[i];
+		}cout << "SUBS= ";
+		for (int i = 0;i < 3;i++) {
+			cout << " " << arr3[i] << " ";
 		}
 	}
-	void product() {
-		for (int i = 0;i < n;i++) {
-			for (int j = 0;j < n;j++) {
-				Poly3[i + j] = Poly1[i] * Poly2[j];
+	void prod() {
+		cout << "PROD= ";
+		for (int i = 0;i < 3;i++) {
+			for (int j = 0;j < 3;j++) {
+				arr3[i+j] = arr1[i] * arr2[i];
 			}
-		}cout << "\nProduct= ";
-		for (int i = 0;i < n;i++) {
-			for (int j = 0;j < n;j++) {
-				cout << "  " << Poly3[i]<<" ";
+		}
+		for (int i = 0;i < 3;i++) {
+			for (int j = 0;j < 3;j++) {
+				cout << arr3[i + j] << " ";
 			}
 		}
 	}
-	~Polynomial() {
-		delete[] Poly1;
-		Poly1 = NULL;
-		delete[] Poly2;
-		Poly2 = NULL;
-		delete[] Poly3;
-		Poly3 = NULL;
-	}
+	
 };
 
 int main() {
-	Polynomial p;
-	p.ask_data();
-	p.show_polynomials();
-	p.addition();
-	p.subtraction();
-	p.product();
+	Poly p("1st Polynimial", "2nd Polynomial");
+	cout << p.get_name1() << endl;
+	cout << p.get_name2() << endl;
+	p.askdata1(3);
+	p.askdata1(4);
+	p.askdata1(5);
+	p.askdata2(1);
+	p.askdata2(2);
+	p.askdata2(3);
+	p.get_array1();
+	cout << endl;
+	p.get_array2();
+	cout << endl;
+	p.add();
+	cout << endl;
+	p.subs();
+	cout << endl;
+	p.prod();
 
 	return 0;
 }
