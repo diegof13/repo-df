@@ -5,7 +5,7 @@ using namespace std;
 class Polynomial {
 	int* Poly1, * Poly2, * Poly3, n, i, j, x;
 public:
-	Polynomial() {
+    Polynomial() {
 		Poly1 = new int[n];
 		Poly2 = new int[n];
 		Poly3 = new int[n];
@@ -79,6 +79,35 @@ public:
 			x--;
 		}
 	}
+	//Polynomial(Polynomial& f) {
+		//this->Poly1 = new int[n];
+		//for (i = 0;i < n;i++) {
+			//this->Poly1[i] = f.Poly1[i];
+		//}
+		//this->Poly2 = new int[n];
+		//for (i = 0;i < n;i++) {
+			//this->Poly2[i] = f.Poly2[i];
+		//}
+		//this->Poly3 = new int[10];
+		//for (i = 0;i < n;i++) {
+			//this->Poly3[i] = f.Poly3[i];
+		//}
+	//}
+	//void operator=(Polynomial w) {
+		//for (i = 0;i < n;i++) {
+			//this->Poly1[i] = w.Poly1[i];
+		//}
+	//}
+	//void operator=(Polynomial y) {
+		//for (i = 0;i < n;i++) {
+			//this->Poly2[i] = y.Poly2[i];
+		//}
+	//}
+	//void operator=(Polynomial z) {
+		//for (i = 0;i < n;i++) {
+			//this->Poly3[i] = z.Poly3[i];
+		//}
+	//}
 	~Polynomial() {
 		delete[] Poly1;
 		Poly1 = NULL;
