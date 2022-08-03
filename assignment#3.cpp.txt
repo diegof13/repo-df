@@ -5,25 +5,19 @@ using namespace std;
 class Poly {
 private:
 	string Polynomial1, Polynomial2;
-	int arr1[6], arr2[6], arr3[100], x, i, j;
+	int* arr1, * arr2, * arr3, x, i, j;
 public:
 	Poly(string Polynomial1, string Polynomial2) {
 		this->Polynomial1 = Polynomial1;
 		this->Polynomial2 = Polynomial2; 
-		//for (int i = 0;i < 3;i++) {
-			//arr1[i] = 0;
-		//}
-		//for (int i = 0;i < 3;i++) {
-			//arr2[i] = 0;
-		//}
+		arr1 = new int[3];
+		arr1 = new int[3];
+		arr1 = new int[10];
 	}
 	Poly() {
-		//for (int i = 0;i < 3;i++) {
-			//arr1[i] = 0;
-		//}
-		//for (int i = 0;i < 3;i++) {
-			//arr2[i] = 0;
-		//}
+		arr1 = new int[3];
+		arr1 = new int[3];
+		arr1 = new int[10];
 	}
 	string get_name1() {
 		return Polynomial1;
@@ -37,15 +31,21 @@ public:
 	void set_name2(string Polynomial2) {
 		this->Polynomial2 = Polynomial2;
 	}
-	void askdata1() {
-		arr1[0] = 5;
-		arr1[1] = 4;
-		arr1[2] = 6;
+	void getdata1() {
+		for (i = 0;i < 3;i++) {
+			cout << "Enter [" << i << "]: "; cin >> arr1[i];
+		}
+		//arr1[0] = 5;
+		//arr1[1] = 4;
+		//arr1[2] = 6;
 	}
-	void askdata2() {
-		arr2[0] = 1;
-		arr2[1] = 2;
-		arr2[2] = 3;
+	void getdata2() {
+		for (i = 0;i < 3;i++) {
+			cout << "Enter [" << i << "]: "; cin >> arr2[i];
+		}
+		//arr2[0] = 1;
+		//arr2[1] = 2;
+		//arr2[2] = 3;
 	}
 	void get_array1() {
 		for (i = 0;i < 3;i++) {
@@ -106,14 +106,48 @@ public:
 			x--;
 		}
 	}
+	Poly(Poly& f) {
+		this->arr1 = new int[3];
+		for (i = 0;i < 3;i++) {
+			this->arr1[i] = f.arr1[i];
+		}
+		this->arr2 = new int[3];
+		for (i = 0;i < 3;i++) {
+			this->arr2[i] = f.arr2[i];
+		}
+		this->arr3 = new int[10];
+		for (i = 0;i < 10;i++) {
+			this->arr3[i] = f.arr3[i];
+		}
+	}
+	void operator=(Poly x) {
+		for (i = 0;i < 3;i++) {
+			this->arr1[i] = x.arr1[i];
+		}
+	}
+	void operator=(Poly y) {
+		for (i = 0;i < 3;i++) {
+			this->arr2[i] = y.arr2[i];
+		}
+	}
+	void operator=(Poly z) {
+		for (i = 0;i < 10;i++) {
+			this->arr3[i] = z.arr3[i];
+		}
+	}
+	~Poly() {
+		delete[]arr1;
+		delete[]arr2;
+		delete[]arr3;
+	}
 };
 
 int main() {
 	Poly p("COEFFICIENTS 1st Polynimial", "COEFFICIENTS 2nd Polynomial");
 	cout << p.get_name1() << endl;
 	cout << p.get_name2() << endl;
-	p.askdata1();
-	p.askdata2();
+	p.getdata1();
+	p.getdata2();
 	p.get_array1();
 	cout << endl;
 	p.get_array2();
