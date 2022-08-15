@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+class Lyon {
+	string type;
+	int years;
+public:
+	Lyon(string _type, int _years) {
+		type = _type;
+		years = _years;
+	}
+	void age() {
+		cout << " and he/she is got " << years << " years"<<endl;
+	}
+	void color() {
+		cout << "\nThe lyon is " << type;
+	}
+};
+
+int main() {
+	Lyon l("white", 5);
+	l.color();
+	l.age();
+	Lyon y("black", 9);
+	y.color();
+	y.age();
+
+	return 0;
+}
