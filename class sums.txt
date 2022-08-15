@@ -1,0 +1,36 @@
+#include<iostream>
+
+using namespace std;
+
+class Adder {
+	int add1, add2;
+public:
+	Adder() {
+		add1 = 0;
+		add2 = 0;
+	}
+	void sum1(int a) {
+		add1 = add1 + a;
+		cout << add1;
+	}
+	void sum2(int b) {
+		add2 = add2 + b;
+		cout << add2;
+	}
+};
+
+int main() {
+	Adder A;
+	cout << "\nThe sum1 is: ";
+	A.sum1(0);
+	cout << "\nThe sum2 is: ";
+	A.sum2(2);
+	cout << "\nNow the sum1 is: ";
+	A.sum1(5);
+	cout << "\nNow the sum2 is: ";
+	A.sum2(-3);
+	cout << "\nThen: ";
+	A.sum1(10);
+
+	return 0;
+}
