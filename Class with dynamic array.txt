@@ -1,0 +1,64 @@
+#include<iostream>
+#include<cstdlib>
+#include<stdlib.h>
+
+using namespace std;
+
+int n;
+
+class Student {
+	string name;
+	float *arr;
+public:
+	Student(string _name) {
+		name = _name;
+		arr = new float;
+	}
+	//Student() {
+
+	//}
+	~Student() {
+		delete[]arr;
+	}
+	void get_name() {
+		cout << "The name is: " << name;
+	}
+	void ask_data() {
+		//int n;
+		cout << "\nHow many grades: "; cin >> n;
+		for (int i = 0;i < n;i++) {
+			cout<<"\nType [" << i << "]: "; cin >> arr[i];
+		}
+	}
+	void get_array() {
+		for (int i = 0;i < n;i++) {
+			cout << arr[i] << " ";
+		}
+
+	}
+	void get_average() {
+		float sum = 0, def;
+		for (int i = 0;i < n;i++) {
+			sum = sum + arr[i];
+		}
+		def = sum / n;
+		cout << "\nThe average is: " << def;
+		if (sum > 3) {
+			cout << "\nThe student " << name << " passed the subject.";
+		}
+		else {
+			cout << "\nThe student " << name << " failed.";
+		}
+	}
+};
+
+int main() {
+	Student s("Diego");
+	s.get_name();
+	s.ask_data();
+	cout << "The grades are: ";
+	s.get_array();
+	s.get_average();
+
+	return 0;
+}
